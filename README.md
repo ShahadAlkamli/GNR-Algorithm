@@ -179,7 +179,6 @@ If you use this repository, please cite:
 **Alkamli, S.; Alshamlan, H.  
 “GNR: Genetic-Embedded Nuclear Reaction Optimization with F-Score Filter for Gene Selection in Cancer Classification.”  
 International Journal of Molecular Sciences, 2025.**  
-:contentReference[oaicite:3]{index=3}
 
 ---
 
