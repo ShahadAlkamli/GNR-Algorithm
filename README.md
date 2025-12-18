@@ -1,22 +1,172 @@
-# GNR: Genetic-Embedded Nuclear Reaction Optimization for Gene Selection
+# GNR: Genetic-Embedded Nuclear Reaction Optimization for Gene Selection  
+### Official Implementation of the IJMS 2025 Published Method  
+**“GNR: Genetic-Embedded Nuclear Reaction Optimization with F-Score Filter for Gene Selection in Cancer Classification”**  
+Alkamli & Alshamlan, 2025  
+:contentReference[oaicite:1]{index=1}
 
-This repository contains the implementation of the **Genetic-Embedded Nuclear Reaction Optimization (GNR)** algorithm, a hybrid metaheuristic approach for gene selection in cancer classification. GNR integrates the exploration strengths of Nuclear Reaction Optimization (NRO) with the exploitation capabilities of a genetic uniform crossover mechanism to identify compact, high-performing gene subsets from high-dimensional microarray data.
+---
 
-## Contents
-- `GNR.py`: Full code for preprocessing, F-score filtering, and hybrid optimization using NRO with embedded genetic crossover.
-- `datasets/`: Contains six publicly available microarray cancer datasets in ARFF format used in the experiments.
+## 📌 Overview
 
-## How to Run
-1. Make sure you have the following Python packages installed:
-   - `numpy`, `pandas`, `scikit-learn`, `scipy`, `tqdm`
+This repository contains the official implementation of **GNR**, a hybrid metaheuristic algorithm designed for **gene selection in microarray cancer datasets**.  
+GNR integrates:
 
-2. Verify that the six `.arff` datasets are located in the `datasets/` folder (included in this repository), or update the `data_files` paths in the script accordingly.
+- **F-Score filtering** (pre-selection of top 500 genes)  
+- **Nuclear Reaction Optimization (NRO)**  
+- **Embedded Uniform Genetic Crossover (30% probability)**  
+- **Lévy Flight Mutation**  
 
-3. Run the script with:
-   ```bash
-   python GNR.py
-   ```
+The selected genes are evaluated using an **SVM classifier with Leave-One-Out Cross-Validation (LOOCV)**.
 
-## Notes
-- The datasets included are standard benchmark datasets originally published in peer-reviewed studies and are commonly used in gene selection and classification research.
-- This repository is intended to support reproducibility and further research on hybrid metaheuristic feature selection algorithms.
+In the published study, GNR achieved:
+
+- **100% accuracy** on *all six* benchmark datasets  
+- Using **only 2–22 genes** depending on the dataset  
+- Outperforming 9 state-of-the-art algorithms  
+
+This repository reproduces the experimental pipeline described in the publication.
+
+---
+
+## 📁 Repository Structure
+
+```
+GNR/
+│
+├── GNR.py               # Full implementation of the GNR algorithm
+│
+├── Datasets/            # Microarray datasets in ARFF format
+│     ├── Colon.arff
+│     ├── Leukemia1.arff
+│     ├── Leukemia2.arff
+│     ├── Lung.arff
+│     ├── Lymphoma.arff
+│     └── SRBCT.arff
+│
+└── README.md
+```
+
+---
+
+## 🔬 Methodology
+
+### **1. Preprocessing**
+- Fix malformed ARFF structures  
+- Convert categorical labels to integers  
+- Z-score normalization  
+- Mean imputation for missing values  
+
+### **2. F-Score Filtering**
+Reduces thousands of genes to the **top 500 most informative**:
+
+```python
+f_classif(X, y)
+```
+
+### **3. GNR Optimization**
+
+A population-based search combining:
+
+#### 🔹 Nuclear Fission  
+- Random Gaussian mutation  
+- Lévy flight steps for exploration  
+
+#### 🔹 Nuclear Fusion  
+- Solution ionization  
+- **Embedded uniform crossover**  
+  - 80% inheritance from best solution  
+  - 20% from a random solution  
+
+#### 🔹 Mutation on 20% of genes  
+Ensures strong exploration of the search space.
+
+### **4. Evaluation**
+Each candidate gene subset is evaluated with:
+
+- **Linear SVM**  
+- **Leave-One-Out Cross-Validation (LOOCV)**  
+- Fitness = **classification accuracy**  
+
+### **5. Repetition**
+All experiments repeat **30 runs per dataset** for statistical significance.
+
+---
+
+## 📊 Published Results (IJMS 2025)
+
+From Table 9 (Page 11 of the paper)  
+:contentReference[oaicite:2]{index=2}
+
+| Dataset | # Genes Selected | Accuracy |
+|--------|------------------|----------|
+| Colon | 22 | 100% |
+| Leukemia 1 | 3 | 100% |
+| Leukemia 2 | 4 | 100% |
+| Lung | 2 | 100% |
+| Lymphoma | 2 | 100% |
+| SRBCT | 5 | 100% |
+
+GNR is the **only algorithm** among all compared methods to achieve **perfect accuracy** on every dataset.
+
+---
+
+## 🧬 Predictive Gene Sets (Final Output)
+
+### Colon — 22 genes  
+T68848, L08069, X74795, U31525, L05144, T90280, X87342, R01124, D14520,  
+R54097, T47584, T47383, T58861, R88740, T51539, U31215, T84049,  
+H20709, T72879, R80427, M29065, X65873  
+
+### Leukemia 1 — 3 genes  
+M75715_s_at, HG1612-HT1612_at, X95735_at  
+
+### Leukemia 2 — 4 genes  
+M37271_s_at, D87459_at, X85116_rna1_s_at, M89957_at  
+
+### Lung — 2 genes  
+U53446_at, U60115_at  
+
+### Lymphoma — 2 genes  
+GENE1602X, GENE3621X  
+
+### SRBCT — 5 genes  
+gene2000, gene509, gene586, gene545, gene742  
+
+---
+
+## ▶️ Running the Code
+
+### Install dependencies
+```bash
+pip install numpy pandas scipy scikit-learn tqdm
+```
+
+### Run the GNR algorithm
+```bash
+python GNR.py
+```
+
+The script will:
+
+- Load ARFF files  
+- Apply F-score filtering  
+- Run GNR for 30 iterations  
+- Evaluate using LOOCV  
+- Output the best accuracy and selected genes  
+
+---
+
+## 📝 Citation
+
+If you use this repository, please cite:
+
+**Alkamli, S.; Alshamlan, H.  
+“GNR: Genetic-Embedded Nuclear Reaction Optimization with F-Score Filter for Gene Selection in Cancer Classification.”  
+International Journal of Molecular Sciences, 2025.**  
+:contentReference[oaicite:3]{index=3}
+
+---
+
+## 📜 License
+This code is provided for academic and research purposes.
+
