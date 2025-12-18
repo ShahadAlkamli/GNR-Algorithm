@@ -110,9 +110,6 @@ All datasets are included in **ARFF** format.
 
 ## 📈 Published Results (IJMS 2025)
 
-From Table 9 (Page 11 of the paper)  
-:contentReference[oaicite:2]{index=2}
-
 | Dataset | # Genes Selected | Accuracy |
 |--------|------------------|----------|
 | Colon | 22 | 100% |
