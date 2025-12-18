@@ -91,7 +91,24 @@ All experiments repeat **30 runs per dataset** for statistical significance.
 
 ---
 
-## 📊 Published Results (IJMS 2025)
+## 📊 Datasets
+
+GNR is evaluated on six well-known microarray datasets:
+
+| Dataset | Classes | Samples | Genes |
+|--------|---------|---------|--------|
+| Colon | 2 | 62 | 2000 |
+| Leukemia 1 | 2 | 72 | 7129 |
+| Leukemia 2 | 3 | 72 | 7129 |
+| Lung | 2 | 96 | 7129 |
+| Lymphoma | 3 | 62 | 4026 |
+| SRBCT | 4 | 83 | 2308 |
+
+All datasets are included in **ARFF** format.
+
+---
+
+## 📈 Published Results (IJMS 2025)
 
 From Table 9 (Page 11 of the paper)  
 :contentReference[oaicite:2]{index=2}
