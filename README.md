@@ -2,7 +2,6 @@
 ### Official Implementation of the IJMS 2025 Published Method  
 **“GNR: Genetic-Embedded Nuclear Reaction Optimization with F-Score Filter for Gene Selection in Cancer Classification”**  
 Alkamli & Alshamlan, 2025  
-:contentReference[oaicite:1]{index=1}
 
 ---
 
