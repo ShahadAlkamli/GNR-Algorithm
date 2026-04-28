@@ -30,7 +30,7 @@ In the published study, GNR achieved:
 
 The implementation of the GNR algorithm is available upon request for academic and research purposes.
 
-To request access, please contact: Shahad.s.alkamli@hotmail.com
+To request access, please contact: shahad.s.alkamli@gmail.com
 
 ---
 
