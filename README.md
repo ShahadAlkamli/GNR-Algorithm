@@ -1,5 +1,5 @@
 # GNR: Genetic-Embedded Nuclear Reaction Optimization for Gene Selection  
-### Official Implementation of the IJMS 2025 Published Method  
+### Official Repository of the IJMS 2025 Published Method  
 **“GNR: Genetic-Embedded Nuclear Reaction Optimization with F-Score Filter for Gene Selection in Cancer Classification”**  
 Alkamli & Alshamlan, 2025  
 
@@ -7,7 +7,8 @@ Alkamli & Alshamlan, 2025
 
 ## 📌 Overview
 
-This repository contains the official implementation of **GNR**, a hybrid metaheuristic algorithm designed for **gene selection in microarray cancer datasets**.  
+This repository presents the methodology, datasets, and experimental results of **GNR**, a hybrid metaheuristic algorithm designed for **gene selection in microarray cancer datasets**.  
+
 GNR integrates:
 
 - **F-Score filtering** (pre-selection of top 500 genes)  
@@ -23,7 +24,11 @@ In the published study, GNR achieved:
 - Using **only 2–22 genes** depending on the dataset  
 - Outperforming 9 state-of-the-art algorithms  
 
-This repository reproduces the experimental pipeline described in the publication.
+---
+
+## 🔒 Code Availability
+
+The implementation of the GNR algorithm is available upon request for academic and research purposes.
 
 ---
 
@@ -32,9 +37,9 @@ This repository reproduces the experimental pipeline described in the publicatio
 ```
 GNR/
 │
-├── GNR.py               # Full implementation of the GNR algorithm
+├── GNR.py               # Code availability notice
 │
-├── Datasets/            # Microarray datasets in ARFF format
+├── Datasets/
 │     ├── Colon.arff
 │     ├── Leukemia1.arff
 │     ├── Leukemia2.arff
@@ -55,12 +60,16 @@ GNR/
 - Z-score normalization  
 - Mean imputation for missing values  
 
+---
+
 ### **2. F-Score Filtering**
 Reduces thousands of genes to the **top 500 most informative**:
 
 ```python
 f_classif(X, y)
 ```
+
+---
 
 ### **3. GNR Optimization**
 
@@ -79,14 +88,20 @@ A population-based search combining:
 #### 🔹 Mutation on 20% of genes  
 Ensures strong exploration of the search space.
 
+---
+
 ### **4. Evaluation**
+
 Each candidate gene subset is evaluated with:
 
 - **Linear SVM**  
 - **Leave-One-Out Cross-Validation (LOOCV)**  
 - Fitness = **classification accuracy**  
 
+---
+
 ### **5. Repetition**
+
 All experiments repeat **30 runs per dataset** for statistical significance.
 
 ---
@@ -103,8 +118,6 @@ GNR is evaluated on six well-known microarray datasets:
 | Lung | 2 | 96 | 7129 |
 | Lymphoma | 3 | 62 | 4026 |
 | SRBCT | 4 | 83 | 2308 |
-
-All datasets are included in **ARFF** format.
 
 ---
 
@@ -147,31 +160,9 @@ gene2000, gene509, gene586, gene545, gene742
 
 ---
 
-## ▶️ Running the Code
-
-### Install dependencies
-```bash
-pip install numpy pandas scipy scikit-learn tqdm
-```
-
-### Run the GNR algorithm
-```bash
-python GNR.py
-```
-
-The script will:
-
-- Load ARFF files  
-- Apply F-score filtering  
-- Run GNR for 30 iterations  
-- Evaluate using LOOCV  
-- Output the best accuracy and selected genes  
-
----
-
 ## 📝 Citation
 
-If you use this repository, please cite:
+If you use this work, please cite:
 
 ```
 Alkamli, S.; Alshamlan, H. GNR: Genetic-Embedded Nuclear Reaction
@@ -182,5 +173,5 @@ International Journal of Molecular Sciences, 2025.
 ---
 
 ## 📜 License
-This code is provided for academic and research purposes.
 
+This repository is provided for **academic and research purposes only**.
