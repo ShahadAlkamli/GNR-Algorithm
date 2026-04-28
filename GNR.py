@@ -1,16 +1,12 @@
 """
-GNR: Genetic-Embedded Nuclear Reaction Optimization
+GNR: Genetic-Embedded Nuclear Reaction Algorithm
 --------------------------------------------------
 
-Code Availability Notice
+The implementation is available upon request for academic and research purposes.
 
-The full implementation of the GNR algorithm is not publicly available
-at this time.
-
-Researchers interested in accessing the code for academic and research
-purposes may request it by contacting the authors.
-
+To request access, please contact: shahad.s.alkamli@gmail.com
 """
 
+
 if __name__ == "__main__":
-    print("GNR implementation is available upon request. Please contact the authors.")
+    print("GNR implementation is available upon request.")
