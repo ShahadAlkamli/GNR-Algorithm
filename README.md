@@ -5,7 +5,7 @@ Alkamli & Alshamlan, 2025
 
 ---
 
-## 📌 Overview
+## 📌 Overview 
 
 This repository presents the methodology, datasets, and experimental results of **GNR**, a hybrid metaheuristic algorithm designed for **gene selection in microarray cancer datasets**.  
 
