@@ -1,7 +1,7 @@
 # GNR: Genetic-Embedded Nuclear Reaction Optimization for Gene Selection  
 ### Official Repository of the IJMS 2025 Published Method  
 **“GNR: Genetic-Embedded Nuclear Reaction Optimization with F-Score Filter for Gene Selection in Cancer Classification”**  
-Alkamli & Alshamlan, 2025  
+Alkamli & Alshamlan, 2025   
 
 ---
 
